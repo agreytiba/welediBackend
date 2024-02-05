@@ -13,7 +13,7 @@ require('dotenv').config();
 const app = express();
 const cors = require('cors');
 const port = 8080;
-const websiteName = 'weledi.com'; /// add your domain like this format domain.com
+const websiteName = 'resume.weledi.africa.com'; /// add your domain like this format domain.com
 
 app.use(express.json());
 app.use(
@@ -90,20 +90,20 @@ app.get('/api/return', async (req, res) => {
 
 
 // Listen both http & https ports
-const httpsServer = https.createServer(
-    {
-        // UPDATE 1.0.0 No need to update this 2 lines
-        key: fs.readFileSync('/etc/letsencrypt/live/' + weledi.com + '/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/' + weledi.com + '/fullchain.pem'),
-    },
-    app
-);
+// const httpsServer = https.createServer(
+//     {
+//         // UPDATE 1.0.0 No need to update this 2 lines
+//         key: fs.readFileSync('/etc/letsencrypt/live/' + weledi.com + '/privkey.pem'),
+//         cert: fs.readFileSync('/etc/letsencrypt/live/' + weledi.com + '/fullchain.pem'),
+//     },
+//     app
+// );
 
 //  const httpServer = http.createServer({
 
 //    }, app);
 
-httpsServer.listen(port, () => {
+app.listen(port, () => {
     console.log('HTTPS Server running on port ' + port);
 });
 
